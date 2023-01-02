@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:19:07 by nfukuma           #+#    #+#             */
-/*   Updated: 2023/01/02 16:36:45 by nfukuma          ###   ########.fr       */
+/*   Updated: 2023/01/02 21:50:15 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Tip: Try to compile int * a = new int(); then display *a. */
 		std::cout << "\ntest 2 : take unsined int parameter constractor" << std::endl;
 		Array<int> test2(1);
 		int * a = new int();
-		std::cout << test2 << "vs " << *a << std::endl;
+		std::cout << test2.front() << "vs " << *a << std::endl;
 		delete a;
 	}
 /* Construction by copy and assignment operator. In both cases, modifying either the
@@ -57,7 +57,7 @@ original array or its copy after copying musn’t affect the other array. */
 		try
 		{
 			Array<int> test4(5);
-			for (int i = 0; i < 5; ++i)
+			for (Array<int>::iterator i = test4.begin(); i < test4.end(); ++i)
 				test4[i] = i * 2;
 			for (int i = 0; i < 6; ++i)
 				std::cout << test4[i] << " " << std::flush;

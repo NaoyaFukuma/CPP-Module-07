@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:18 by nfukuma           #+#    #+#             */
-/*   Updated: 2023/01/02 00:58:24 by nfukuma          ###   ########.fr       */
+/*   Updated: 2023/01/02 21:49:20 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,21 @@ class Array
 	void checkIndex(unsigned int i) const;
 
   public:
+	typedef unsigned int iterator;
 	Array();
 	Array(unsigned int n);
 	Array(const Array &src);
 	~Array();
 
+	bool empty() const;
 	unsigned int size() const;
+	iterator begin() const;
+	iterator end() const;
+	T &front();
+	const T &front() const;
+	T &back();
+	const T &back() const;
+
 
 	Array &operator=(const Array &rhs);
 	T &operator[](unsigned int i);
@@ -148,5 +157,66 @@ unsigned int Array<T>::size() const
 	return (this->size_);
 }
 
+template <typename T>
+bool Array<T>::empty() const
+{
+	return (this->size_ == 0);
+}
+
+template <typename T>
+typename Array<T>::iterator Array<T>::begin() const
+{
+	return (0);
+}
+
+template <typename T>
+typename Array<T>::iterator Array<T>::end() const
+{
+	return (this->size_);
+}
+
+template <typename T>
+T &Array<T>::front()
+{
+	if (Array<T>::empty())
+	{
+		std::cerr << "Error : empty." << std::endl;
+		throw std::exception();
+	}
+	return (this->arrPtr_[0]);
+}
+
+template <typename T>
+const T &Array<T>::front() const
+{
+	if (Array<T>::empty())
+	{
+		std::cerr << "Error : empty." << std::endl;
+		throw std::exception();
+	}
+	return (this->arrPtr_[0]);
+}
+
+template <typename T>
+T &Array<T>::back()
+{
+	if (Array<T>::empty())
+	{
+		std::cerr << "Error : empty." << std::endl;
+		throw std::exception();
+	}
+	return (this->arrPtr_[this->size_ - 1]);
+}
+
+template <typename T>
+const T &Array<T>::back() const
+{
+	if (Array<T>::empty())
+	{
+		std::cerr << "Error : empty." << std::endl;
+		throw std::exception();
+	}
+	return (this->arrPtr_[this->size_]);
+}
 
 #endif
