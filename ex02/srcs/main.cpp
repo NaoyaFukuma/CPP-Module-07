@@ -6,16 +6,12 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:19:07 by nfukuma           #+#    #+#             */
-/*   Updated: 2023/01/02 01:07:09 by nfukuma          ###   ########.fr       */
+/*   Updated: 2023/01/02 16:36:45 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
-#include "iter.hpp"
 #include <iostream>
-
-#define SIZE 10
-
 
 int	main()
 {
